@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TaskItem from "./TaskItem";
 
 function TaskManager() {
   const [tasks, setTasks] = useState(["Купить хлеб", "Погулять с собакой"]);
@@ -24,7 +25,7 @@ function TaskManager() {
       <h2>Список задач</h2>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
+          <TaskItem key={index} task={task} />
         ))}
       </ul>
       <div className="controls">
