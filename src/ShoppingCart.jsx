@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import CartItem from "./CartItem";
 
 function ShoppingCart() {
@@ -7,19 +7,17 @@ function ShoppingCart() {
     { id: 2, title: "Кепка", count: 2 },
   ]);
 
-  const incrementCount = (id) => {
+  const incrementCount = useCallback((id) => {
     setCart((prev) =>
       prev.map((item) =>
-        item.id === id
-          ? { ...prev, title: item.title, count: item.count + 1 }
-          : item
+        item.id === id ? { ...item, count: item.count + 1 } : item
       )
     );
-  };
+  }, []);
 
-  const deleteItem = (id) => {
+  const deleteItem = useCallback((id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
-  };
+  }, []);
 
   const clearCart = () => {
     setCart([]);
