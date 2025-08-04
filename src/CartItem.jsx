@@ -1,4 +1,7 @@
+import React from "react";
+
 function CartItem({ item, onIncrement, onDelete }) {
+  console.log("CartItem rendered:", item.title);
   return (
     <>
       <p>
@@ -10,4 +13,4 @@ function CartItem({ item, onIncrement, onDelete }) {
   );
 }
 
-export default CartItem;
+export default React.memo(CartItem);
