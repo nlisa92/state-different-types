@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UserInfo from "./UserInfo";
 
 function ObjectComponent() {
   const [user, setUser] = useState({
@@ -23,12 +24,7 @@ function ObjectComponent() {
   return (
     <div className="user-profile">
       <h2>Профиль пользователя</h2>
-
-      <div className="user-info">
-        <p>Имя:{user.name} </p>
-        <p>Возраст:{user.age} </p>
-        <p>Статус:{user.isActive ? "Да" : "Нет"}</p>
-      </div>
+      <UserInfo user={user} />
 
       <div className="controls">
         <button onClick={changeName}>Сменить имя</button>
